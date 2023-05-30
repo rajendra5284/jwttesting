@@ -17,3 +17,18 @@ eureka:
   client:
     service-url:
       defaultZone: http://admin:${jhipster.registry.password}@ZAVSDCW10H8035:8761/eureka/
+spring:      
+  sleuth:
+    # https://github.com/spring-projects/spring-framework/issues/27844#issuescomment-1002866885
+    # https://github.com/spring-cloud/spring-cloud-sleuth/issues/2094
+    async:
+      enabled: false
+    enabled: true
+    sampler:
+      probability: 1 # report 100% of traces
+  zipkin: # Use the "zipkin" Maven profile to have the Spring Cloud Zipkin dependencies
+    base-url: http://ZAVSDCW10H8035:9411
+    enabled: true
+    locator:
+      discovery:
+        enabled: true
